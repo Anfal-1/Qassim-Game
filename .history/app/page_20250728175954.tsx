@@ -353,7 +353,6 @@ export default function QassimTourismGame() {
     setIsCorrect(correct)
 
     if (correct) {
-      setCorrectAnswersCount(prev => prev + 1)
       const timeBonus = Math.max(0, timeLeft - 5) * 2
       const difficultyBonus = currentLandmark.points
       const totalPoints = difficultyBonus + timeBonus
@@ -721,9 +720,7 @@ export default function QassimTourismGame() {
       (sum, landmark) => sum + landmark.points + 10,
       0
     )
-    const percentage = Math.round(
-      (correctAnswersCount / shuffledLandmarks.length) * 100
-    )
+    const percentage = Math.round((score / maxPossibleScore) * 100)
     let message = ''
     let bgColor = ''
     let emoji = ''
@@ -746,9 +743,11 @@ export default function QassimTourismGame() {
       emoji = '🎯'
     }
 
-    ;<div className="text-xl lg:text-2xl font-bold text-green-800">
-      {correctAnswersCount}
-    </div>
+    const correctAnswers = shuffledLandmarks
+      .slice(0, currentLandmarkIndex + 1)
+      .filter(
+        (_, index) => selectedAnswer === shuffledLandmarks[index]?.correctAnswer
+      ).length
 
     return (
       <div className="min-h-screen flex items-center justify-center p-2 sm:p-4">
@@ -792,7 +791,7 @@ export default function QassimTourismGame() {
               </div>
               <div className="heritage-card rounded-xl p-3 lg:p-4 border-2 border-green-200">
                 <div className="text-xl lg:text-2xl font-bold text-green-800">
-                  {correctAnswersCount}
+                  {correctAnswers}
                 </div>
                 <div className="text-green-600 font-semibold text-xs lg:text-sm">
                   إجابات صحيحة

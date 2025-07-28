@@ -746,9 +746,11 @@ export default function QassimTourismGame() {
       emoji = '🎯'
     }
 
-    ;<div className="text-xl lg:text-2xl font-bold text-green-800">
-      {correctAnswersCount}
-    </div>
+    const correctAnswers = shuffledLandmarks
+      .slice(0, currentLandmarkIndex + 1)
+      .filter(
+        (_, index) => selectedAnswer === shuffledLandmarks[index]?.correctAnswer
+      ).length
 
     return (
       <div className="min-h-screen flex items-center justify-center p-2 sm:p-4">
@@ -792,7 +794,7 @@ export default function QassimTourismGame() {
               </div>
               <div className="heritage-card rounded-xl p-3 lg:p-4 border-2 border-green-200">
                 <div className="text-xl lg:text-2xl font-bold text-green-800">
-                  {correctAnswersCount}
+                  {correctAnswers}
                 </div>
                 <div className="text-green-600 font-semibold text-xs lg:text-sm">
                   إجابات صحيحة

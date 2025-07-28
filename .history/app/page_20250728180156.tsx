@@ -792,7 +792,7 @@ export default function QassimTourismGame() {
               </div>
               <div className="heritage-card rounded-xl p-3 lg:p-4 border-2 border-green-200">
                 <div className="text-xl lg:text-2xl font-bold text-green-800">
-                  {correctAnswersCount}
+                  {correctAnswers}
                 </div>
                 <div className="text-green-600 font-semibold text-xs lg:text-sm">
                   إجابات صحيحة
