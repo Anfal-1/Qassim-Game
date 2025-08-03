@@ -516,7 +516,7 @@ export default function QassimTourismGame() {
           {/* شعار داخل دائرة */}
           <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-[#00A9B4] shadow-lg mx-auto">
             <img
-              src="/Qassim.jpg"
+              src="/qassim.jpg"
               alt="Qassim Logo"
               className="w-full h-full object-cover select-none pointer-events-none"
               draggable={false}
