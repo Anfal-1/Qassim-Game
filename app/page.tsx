@@ -8,6 +8,7 @@ import { Progress } from '@/components/ui/progress'
 import PalmTimer from '@/components/PalmTimer'
 import GlitchCamera from '@/components/GlitchCamera'
 import HeritageLogo from '@/components/HeritageLogo'
+
 import {
   MapPin,
   Star,
@@ -124,74 +125,9 @@ const landmarks = [
     difficulty: 'صعب',
     points: 20,
   },
-  {
-    id: 11,
-    name: 'البلدة التراثية في رياض الخبراء',
-    image: '/images/reath-kabra.jpeg',
-    info: 'تقع على الضفة الشمالية لوادي الرمة، شمال بريدة بـ60 كم. يعود تاريخها إلى 1703م، وتحتوي على حوالي 400–450 منزل طيني وأربعة أبراج مراقبة وأبواب رئيسية',
-    options: [
-      'البلدة القديمة',
-      'البلدة التراثية في رياض الخبراء',
-      'قرية الوادي',
-    ],
-    correctAnswer: 1,
-    difficulty: 'صعب',
-    points: 20,
-  },
-  {
-    id: 12,
-    name: 'بيت الحرفيين',
-    image: '/images/museum-interior.jpeg',
-    info: 'مشروع أطلقته هيئة التراث لدعم وتمكين الحرفيين في المنطقة، ويُعد نقطة تجمع لورش وحرف يدوية ومحطة ثقافية تعليمية',
-    options: ['بيت الحرفيين', 'مركز الفنون', 'ورشة التراث'],
-    correctAnswer: 0,
-    difficulty: 'متوسط',
-    points: 15,
-  },
-  {
-    id: 13,
-    name: 'باب القصر التراثي',
-    image: '/images/bit-alqaser.jpeg',
-    info: 'تم إعادة بنائه مؤخرًا كجزء من مشروع معالم وبوابات بريدة التاريخية على طريق يوم التأسيس. يحاكي التصميم الأصلي للبوابة ويُستخدم كمعلم تعريفي للمدينة',
-    options: ['باب المدينة', 'باب القصر التراثي', 'بوابة الملك'],
-    correctAnswer: 1,
-    difficulty: 'متوسط',
-    points: 15,
-  },
-  {
-    id: 14,
-    name: 'بيت العيدان التراثي',
-    image: '/images/bit-aydan.jpeg',
-    info: 'منزل شعبي محفوظ يعود لأسرة العدوان، يقع في وسط بريدة (حي الجردة)، ويُستخدم اليوم كمتحف للضيافة التقليدية والإطلالة على أسلوب العيش القديم',
-    options: ['بيت العيدان التراثي', 'بيت الطين', 'المنزل الشعبي'],
-    correctAnswer: 0,
-    difficulty: 'صعب',
-    points: 20,
-  },
-
-  {
-    id: 15,
-    name: 'متحف العقيلات',
-    image: '/images/regional-museum.jpeg',
-    info: 'متحف خاص انشأه عبد اللطيف الوهيبي، يوثق رحلة تجّار العقيلات من القصيم عبر صور ووثائق ومقتنيات. يحتوي على آلاف الوثائق ومئات الصور ويعد مرجعًا للباحثين',
-    options: ['متحف التراث', 'متحف العقيلات', 'متحف التجارة'],
-    correctAnswer: 1,
-    difficulty: 'صعب',
-    points: 20,
-  },
-  {
-    id: 16,
-    name: 'جادة النخيل',
-    image: '/images/jada-n.jpeg',
-    info: 'شارع جميل يتزين بجذوع النخيل، يوفّر ممشى جذابًا للأهالي والزوار بين الطبيعة والظل، ويُضفي روحًا تراثية على المشهد الحضري',
-    options: ['شارع النخيل', 'جادة النخيل', 'طريق التمر'],
-    correctAnswer: 1,
-    difficulty: 'سهل',
-    points: 10,
-  },
 ]
 
-type GameState = 'welcome' | 'playing' | 'result' | 'finished'
+type GameState = 'landing' | 'welcome' | 'playing' | 'result' | 'finished'
 
 interface GameStats {
   totalGames: number
@@ -201,12 +137,12 @@ interface GameStats {
 }
 
 export default function QassimTourismGame() {
-  const [gameState, setGameState] = useState<GameState>('welcome')
+  const [gameState, setGameState] = useState<GameState>('landing')
   const [currentLandmarkIndex, setCurrentLandmarkIndex] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
   const [score, setScore] = useState(0)
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0)
-  const [timeLeft, setTimeLeft] = useState(15)
+  const [timeLeft, setTimeLeft] = useState(5)
   const [showResult, setShowResult] = useState(false)
   const [isCorrect, setIsCorrect] = useState(false)
   const [gameStats, setGameStats] = useState<GameStats>({
@@ -334,7 +270,7 @@ export default function QassimTourismGame() {
     setGameState('playing')
     setCurrentLandmarkIndex(0)
     setScore(0)
-    setTimeLeft(15)
+    setTimeLeft(5)
     setSelectedAnswer(null)
     setShowResult(false)
     setGameStartTime(Date.now())
@@ -378,7 +314,7 @@ export default function QassimTourismGame() {
     if (currentLandmarkIndex < shuffledLandmarks.length - 1) {
       setCurrentLandmarkIndex(currentLandmarkIndex + 1)
       setSelectedAnswer(null)
-      setTimeLeft(15)
+      setTimeLeft(5)
       setShowResult(false)
       setQuestionStartTime(Date.now())
     } else {
@@ -457,9 +393,7 @@ export default function QassimTourismGame() {
                     className="text-4xl lg:text-6xl font-bold gradient-text mb-4 glitch-effect animate-fade-in tracking-wide"
                     data-text="الوجهة الضبابية"
                   ></h1>
-                  <p className="text-2xl lg:text-3xl medium-brown-text font-semibold animate-slide-up tracking-wide leading-relaxed">
-                    اكتشف معالم القصيم السياحية
-                  </p>
+
                   <Badge
                     variant="secondary"
                     className="text-lg lg:text-xl px-6 py-3 mt-4 bg-foggy-gray medium-brown-text font-bold rounded-full shadow-lg"
@@ -494,7 +428,7 @@ export default function QassimTourismGame() {
                       اختر الإجابة
                     </h3>
                     <p className="medium-brown-text text-sm lg:text-base">
-                      لديك 15 ثانية لاختيار الإجابة الصحيحة من 3 خيارات
+                      لديك 5 ثواني لاختيار الإجابة الصحيحة من 3 خيارات
                     </p>
                   </div>
                   <div className="flex flex-col items-center text-center">
@@ -551,6 +485,85 @@ export default function QassimTourismGame() {
       </div>
     )
   }
+  // شاشة البداية Landing
+  if (gameState === 'landing') {
+    return (
+      <main className="min-h-screen bg-white flex flex-col items-center justify-center px-6 py-16 relative overflow-hidden">
+        <div className="text-center max-w-2xl mx-auto space-y-6">
+          {/* العنوان */}
+          <h1 className="text-4xl md:text-6xl font-extrabold text-[#1B1F5C] drop-shadow-sm">
+            الوجهة الضبابية
+          </h1>
+
+          {/* الوصف */}
+          <p className="text-2xl md:text-3xl text-[#00A9B4] font-medium">
+            اكتشف معالم القصيم السياحية
+          </p>
+
+          {/* زر البدء */}
+          <Button
+            onClick={() => setGameState('welcome')}
+            size="lg"
+            className="px-10 py-4 text-xl font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+            style={{
+              background: 'linear-gradient(135deg, #00A9B4 0%, #008B94 100%)',
+              color: '#fff',
+            }}
+          >
+            ابدأ اللعب
+          </Button>
+
+          {/* شعار داخل دائرة */}
+          <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-[#00A9B4] shadow-lg mx-auto">
+            <img
+              src="/qassim.jpg"
+              alt="Qassim Logo"
+              className="w-full h-full object-cover select-none pointer-events-none"
+              draggable={false}
+              onContextMenu={e => e.preventDefault()}
+            />
+          </div>
+
+          {/* إطار التعريف */}
+          <div className="mt-10 border border-[#00A9B4] rounded-xl p-6 text-center shadow-md bg-white/80 backdrop-blur-sm max-w-lg mx-auto space-y-4">
+            <p className="text-base md:text-lg text-[#1B1F5C] font-medium">
+              Developed with passion by
+            </p>
+
+            <div className="flex justify-center items-center gap-3 text-sm md:text-base font-semibold">
+              <a
+                href="https://www.linkedin.com/in/anfal-alharbi1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-[#00A9B4] hover:underline"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 16 16"
+                  className="w-4 h-4"
+                >
+                  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C..." />
+                </svg>
+                Anfal Alharbi
+              </a>
+
+              <span className="text-[#1B1F5C]">|</span>
+
+              <span className="text-[#1B1F5C]">Reuof</span>
+            </div>
+
+            <a
+              href="mailto:info@qassim.tech"
+              className="inline-block text-sm md:text-base border border-[#00A9B4] text-[#00A9B4] px-5 py-2 rounded-lg hover:bg-[#00A9B4]/10 transition-all duration-300"
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </main>
+    )
+  }
 
   // شاشة اللعبة
   if (gameState === 'playing') {
@@ -582,7 +595,7 @@ export default function QassimTourismGame() {
 
                 {/* عداد النخلة */}
                 <div className="flex items-center justify-center scale-75 sm:scale-100">
-                  <PalmTimer timeLeft={timeLeft} totalTime={15} />
+                  <PalmTimer timeLeft={timeLeft} totalTime={4} />
                 </div>
               </div>
               <Progress value={progress} className="h-2 lg:h-3" />
@@ -599,12 +612,21 @@ export default function QassimTourismGame() {
                 <img
                   src={currentLandmark.image || '/placeholder.svg'}
                   alt="معلم سياحي"
-                  className={`w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover transition-all duration-1000 ${
-                    showResult
-                      ? 'blur-none'
-                      : getBlurClassFromPoints(currentLandmark.points)
-                  }`}
+                  className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover"
+                  style={{
+                    filter: showResult
+                      ? 'blur(0px)'
+                      : currentLandmark.points >= 9
+                      ? 'blur(4px)'
+                      : currentLandmark.points >= 6
+                      ? 'blur(3px)'
+                      : currentLandmark.points >= 3
+                      ? 'blur(2px)'
+                      : 'blur(1px)',
+                    transition: 'filter 1s ease',
+                  }}
                 />
+
                 {!showResult && (
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
                 )}
