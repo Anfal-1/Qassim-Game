@@ -4,7 +4,7 @@
 
 ## 🎮 Features
 
-- 🏞️ 16 unique cultural and natural landmarks
+- 🏞️ 10 unique cultural and natural landmarks
 - 🔄 Multiple game rounds with difficulty levels
 - ⏱️ Countdown timer and scoring system
 - 🌍 Fully responsive design for all devices
