@@ -500,24 +500,13 @@ export default function QassimTourismGame() {
           </div>
         </header>
 
-        {/* 🔵 قسم عن اللعبة بخلفية كحلية ونص أبيض */}
-        <section className="bg-[#1B1F5C] w-full py-24 px-6 text-center  mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
-            عن اللعبة
-          </h2>
-          <p className="text-white leading-relaxed text-base md:text-lg">
-            الوجهة الضبابية هي لعبة تفاعلية تعليمية تهدف لتعزيز المعرفة السياحية
-            والثقافية عن منطقة القصيم، من خلال استكشاف صور مغبشة لمعالم المنطقة
-            بطريقة ممتعة.
-          </p>
-        </section>
-
-        {/* 🟢 القسم الرئيسي بخلفية بيضاء وعناصر واضحة */}
-        <section className="bg-white text-[#1B1F5C] flex flex-col items-center justify-center text-center py-24 px-6">
+        {/* 🔵 القسم الرئيسي */}
+        <section className="bg-[#1B1F5C] text-white flex flex-col items-center justify-center text-center py-24 px-6">
           <h1 className="text-4xl md:text-5xl font-extrabold drop-shadow-sm">
             الوجهة الضبابية
           </h1>
-          <p className="text-lg md:text-xl mt-4 mb-6 opacity-90"></p>
+          <p className="text-lg md:text-xl mt-4 mb-6">
+          </p>
           <button
             onClick={() => setGameState('welcome')}
             className="bg-[#00B5B8] text-white font-semibold px-8 py-3 rounded-full hover:scale-105 transition shadow-lg"
@@ -526,6 +515,17 @@ export default function QassimTourismGame() {
           </button>
         </section>
 
+        {/* 🔵 قسم عن اللعبة */}
+        <section className="py-16 px-6 text-center max-w-2xl mx-auto">
+          <h2 className="text-2xl font-bold mb-4">عن اللعبة</h2>
+          <p className="text-gray-700 leading-relaxed">
+            الوجهة الضبابية هي لعبة تفاعلية تعليمية تهدف لتعزيز المعرفة السياحية
+            والثقافية عن منطقة القصيم، من خلال استكشاف صور مغبشة لمعالم المنطقة
+            بطريقة ممتعة وتنافسية.
+          </p>
+        </section>
+
+        {/* 🔵 الفوتر */}
         <footer className="bg-[#1B1F5C] text-white pt-12 pb-6 px-6 md:px-16 text-sm">
           <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto gap-10 md:gap-20">
             {/* ✅ الشعار بدون أي تأثيرات أو تعديلات */}
@@ -546,25 +546,35 @@ export default function QassimTourismGame() {
                 <h3 className="text-[#00B5B8] font-semibold mb-2">
                   فريق العمل
                 </h3>
-                <ul className="space-y-1 text-gray-200">
+                <ul className="space-y-2 text-gray-200">
                   <li>
                     <a
                       href="https://www.linkedin.com/in/anfal-alharbi1"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="hover:underline hover:text-white transition"
                     >
-                      Anfal Alharbi
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/in/fay-alsalhi-b526372ab?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:underline hover:text-white transition"
-                    >
-                      Fay Alsalhi
+                      {/* أيقونة LinkedIn */}
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        fill="currentColor"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 
+                        .513 16 1.146v13.708C16 15.487 15.474 16 14.825 
+                        16H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 
+                        12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 
+                        0 1.358-.554 1.358-1.248-.015-.709-.521-1.248-1.342-1.248-.821 
+                        0-1.359.54-1.359 1.248 0 .694.521 1.248 
+                        1.327 1.248h.016zm4.908 8.212V9.359c0-.215.016-.43.08-.584.175-.43.571-.875 
+                        1.237-.875.872 0 1.221.66 1.221 1.63v3.864h2.401V9.285c0-2.22-1.184-3.252-2.764-3.252-1.274 
+                        0-1.845.7-2.165 1.193h.031v-1.025H7.51c.03.66 
+                        0 7.225 0 7.225h2.401z"
+                        />
+                      </svg>
+                      Anfal
                     </a>
                   </li>
                   <li className="text-gray-300">Reuof</li>
@@ -574,19 +584,18 @@ export default function QassimTourismGame() {
               {/* تواصل معنا */}
               <div>
                 <h3 className="text-[#00B5B8] font-semibold mb-2">
+                  تواصل معنا
                 </h3>
                 <ul className="space-y-1 text-gray-200">
                   <li>
-                    {' '}
                     <a
-                      href="mailto:info@qassim.org"
+                      href="mailto:info@qassim1.org"
                       className="hover:underline hover:text-white transition"
                     >
-                      info@qassim.org
+                      info@qassim1.org
                     </a>
                   </li>
                   <li>
-                    {' '}
                     <a
                       href="https://qassim.tech"
                       target="_blank"
@@ -608,14 +617,12 @@ export default function QassimTourismGame() {
               className="inline-block bg-white text-[#1B1F5C] font-bold px-6 py-3 rounded-full hover:bg-[#00B5B8] hover:text-white transition"
             >
               هل لديك فكرة وتحتاج موقعًا مميزًا؟
-               تواصل معنا
-
             </a>
           </div>
 
           {/* الحقوق */}
           <div className="mt-10 text-center text-xs text-gray-400">
-            جميع الحقوق محفوظة لجمعية القصيم التقنية © 2024{' '}
+            © 2025 جمعية Qassim1 – جميع الحقوق محفوظة
           </div>
         </footer>
       </main>

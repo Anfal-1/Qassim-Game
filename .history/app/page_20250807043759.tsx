@@ -508,7 +508,7 @@ export default function QassimTourismGame() {
           <p className="text-white leading-relaxed text-base md:text-lg">
             الوجهة الضبابية هي لعبة تفاعلية تعليمية تهدف لتعزيز المعرفة السياحية
             والثقافية عن منطقة القصيم، من خلال استكشاف صور مغبشة لمعالم المنطقة
-            بطريقة ممتعة.
+            بطريقة ممتعة .
           </p>
         </section>
 

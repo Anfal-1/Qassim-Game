@@ -485,142 +485,98 @@ export default function QassimTourismGame() {
       </div>
     )
   }
-  if (gameState === 'landing') {
-    return (
-      <main className="bg-white text-[#1B1F5C] font-sans">
-        {/* 🔵 الشعار */}
-        <header className="py-6 flex justify-center">
-          <div className="w-36 h-36 rounded-full overflow-hidden relative select-none pointer-events-none">
-            <img
-              src="/qw.png"
-              alt="Qassim Tech Logo"
-              draggable={false}
-              onContextMenu={e => e.preventDefault()}
-            />
-          </div>
-        </header>
+  // شاشة البداية Landing
+if (gameState === 'landing') {
+  return (
+    <main className="min-h-screen bg-[#0B1B48] text-white flex flex-col items-center justify-center px-6 py-16 relative overflow-hidden">
+      <div className="text-center max-w-2xl mx-auto space-y-6">
+        {/* الشعار داخل دائرة */}
+        <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-[#00B5B8] shadow-lg mx-auto">
+          <img
+            src="/Qassim.jpg" // تأكد أن الشعار موجود داخل public بهذا الاسم
+            alt="Qassim Tech Logo"
+            className="w-full h-full object-cover select-none pointer-events-none"
+            draggable={false}
+            onContextMenu={e => e.preventDefault()}
+          />
+        </div>
 
-        {/* 🔵 قسم عن اللعبة بخلفية كحلية ونص أبيض */}
-        <section className="bg-[#1B1F5C] w-full py-24 px-6 text-center  mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">
-            عن اللعبة
-          </h2>
-          <p className="text-white leading-relaxed text-base md:text-lg">
-            الوجهة الضبابية هي لعبة تفاعلية تعليمية تهدف لتعزيز المعرفة السياحية
-            والثقافية عن منطقة القصيم، من خلال استكشاف صور مغبشة لمعالم المنطقة
-            بطريقة ممتعة.
+        {/* العنوان */}
+        <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-sm">
+          الوجهة الضبابية
+        </h1>
+
+        {/* الوصف */}
+        <p className="text-2xl md:text-3xl text-[#00B5B8] font-medium">
+          اكتشف معالم القصيم السياحية
+        </p>
+
+        {/* زر البدء */}
+        <Button
+          onClick={() => setGameState('welcome')}
+          size="lg"
+          className="px-10 py-4 text-xl font-bold rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300"
+          style={{
+            background: 'linear-gradient(135deg, #00B5B8 0%, #009ea0 100%)',
+            color: '#fff',
+          }}
+        >
+          ابدأ اللعب
+        </Button>
+
+        {/* إطار التعريف والتواصل */}
+        <div className="mt-10 border border-[#00B5B8] rounded-xl p-6 text-center shadow-md bg-white/10 backdrop-blur-sm max-w-lg mx-auto space-y-4">
+          <p className="text-base md:text-lg text-white font-medium">
+            تنفيذ بواسطة فريق المبرمجين
           </p>
-        </section>
 
-        {/* 🟢 القسم الرئيسي بخلفية بيضاء وعناصر واضحة */}
-        <section className="bg-white text-[#1B1F5C] flex flex-col items-center justify-center text-center py-24 px-6">
-          <h1 className="text-4xl md:text-5xl font-extrabold drop-shadow-sm">
-            الوجهة الضبابية
-          </h1>
-          <p className="text-lg md:text-xl mt-4 mb-6 opacity-90"></p>
-          <button
-            onClick={() => setGameState('welcome')}
-            className="bg-[#00B5B8] text-white font-semibold px-8 py-3 rounded-full hover:scale-105 transition shadow-lg"
-          >
-            ابدأ اللعبة
-          </button>
-        </section>
+          <div className="flex justify-center items-center gap-3 text-sm md:text-base font-semibold">
+            <a
+              href="https://www.linkedin.com/in/anfal-alharbi1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-[#00B5B8] hover:underline"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+                className="w-4 h-4"
+              >
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C..." />
+              </svg>
+              Anfal Alharbi
+            </a>
 
-        <footer className="bg-[#1B1F5C] text-white pt-12 pb-6 px-6 md:px-16 text-sm">
-          <div className="flex flex-col md:flex-row justify-between items-center md:items-start max-w-7xl mx-auto gap-10 md:gap-20">
-            {/* ✅ الشعار بدون أي تأثيرات أو تعديلات */}
-            <div className="w-full md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left">
-              <img
-                src="/QQ.png"
-                alt="Qassim Logo"
-                className="w-32 h-auto mb-4"
-                draggable={false}
-                onContextMenu={e => e.preventDefault()}
-              />
-            </div>
+            <span className="text-white">|</span>
 
-            {/* ✅ معلومات الفريق والتواصل */}
-            <div className="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 text-center md:text-start">
-              {/* فريق العمل */}
-              <div>
-                <h3 className="text-[#00B5B8] font-semibold mb-2">
-                  فريق العمل
-                </h3>
-                <ul className="space-y-1 text-gray-200">
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/in/anfal-alharbi1"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:underline hover:text-white transition"
-                    >
-                      Anfal Alharbi
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/in/fay-alsalhi-b526372ab?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:underline hover:text-white transition"
-                    >
-                      Fay Alsalhi
-                    </a>
-                  </li>
-                  <li className="text-gray-300">Reuof</li>
-                </ul>
-              </div>
-
-              {/* تواصل معنا */}
-              <div>
-                <h3 className="text-[#00B5B8] font-semibold mb-2">
-                </h3>
-                <ul className="space-y-1 text-gray-200">
-                  <li>
-                    {' '}
-                    <a
-                      href="mailto:info@qassim.org"
-                      className="hover:underline hover:text-white transition"
-                    >
-                      info@qassim.org
-                    </a>
-                  </li>
-                  <li>
-                    {' '}
-                    <a
-                      href="https://qassim.tech"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="hover:underline hover:text-white transition"
-                    >
-                      qassim.tech
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            <span className="text-white">Reuof</span>
           </div>
 
-          {/* ✅ زر طلب خدمة */}
-          <div className="text-center mt-8">
+          <div className="flex flex-col items-center gap-3">
+            {/* رابط موقع الجمعية */}
             <a
-              href="mailto:info@qassim1.org?subject=طلب خدمة تصميم موقع"
-              className="inline-block bg-white text-[#1B1F5C] font-bold px-6 py-3 rounded-full hover:bg-[#00B5B8] hover:text-white transition"
+              href="https://qassimtech.sa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm md:text-base underline hover:text-[#00B5B8] transition"
             >
-              هل لديك فكرة وتحتاج موقعًا مميزًا؟
-               تواصل معنا
+              موقع جمعية القصيم التقنية
+            </a>
 
+            {/* زر طلب خدمة */}
+            <a
+              href="mailto:info@qassimtech.sa"
+              className="inline-block text-sm md:text-base border border-[#00B5B8] text-[#00B5B8] px-5 py-2 rounded-lg hover:bg-[#00B5B8]/10 transition-all duration-300"
+            >
+              طلب خدمة بناء موقع
             </a>
           </div>
-
-          {/* الحقوق */}
-          <div className="mt-10 text-center text-xs text-gray-400">
-            جميع الحقوق محفوظة لجمعية القصيم التقنية © 2024{' '}
-          </div>
-        </footer>
-      </main>
-    )
-  }
+        </div>
+      </div>
+    </main>
+  );
+}
 
   // شاشة اللعبة
   if (gameState === 'playing') {

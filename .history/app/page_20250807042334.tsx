@@ -508,7 +508,7 @@ export default function QassimTourismGame() {
           <p className="text-white leading-relaxed text-base md:text-lg">
             الوجهة الضبابية هي لعبة تفاعلية تعليمية تهدف لتعزيز المعرفة السياحية
             والثقافية عن منطقة القصيم، من خلال استكشاف صور مغبشة لمعالم المنطقة
-            بطريقة ممتعة.
+            بطريقة ممتعة وتنافسية.
           </p>
         </section>
 
@@ -557,16 +557,6 @@ export default function QassimTourismGame() {
                       Anfal Alharbi
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/in/fay-alsalhi-b526372ab?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:underline hover:text-white transition"
-                    >
-                      Fay Alsalhi
-                    </a>
-                  </li>
                   <li className="text-gray-300">Reuof</li>
                 </ul>
               </div>
@@ -574,15 +564,16 @@ export default function QassimTourismGame() {
               {/* تواصل معنا */}
               <div>
                 <h3 className="text-[#00B5B8] font-semibold mb-2">
+                  تواصل معنا
                 </h3>
                 <ul className="space-y-1 text-gray-200">
                   <li>
                     {' '}
                     <a
-                      href="mailto:info@qassim.org"
+                      href="mailto:info@qassim1.org"
                       className="hover:underline hover:text-white transition"
                     >
-                      info@qassim.org
+                      info@qassim1.org
                     </a>
                   </li>
                   <li>
@@ -608,8 +599,6 @@ export default function QassimTourismGame() {
               className="inline-block bg-white text-[#1B1F5C] font-bold px-6 py-3 rounded-full hover:bg-[#00B5B8] hover:text-white transition"
             >
               هل لديك فكرة وتحتاج موقعًا مميزًا؟
-               تواصل معنا
-
             </a>
           </div>
 
