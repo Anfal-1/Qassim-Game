@@ -142,7 +142,7 @@ export default function QassimTourismGame() {
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null)
   const [score, setScore] = useState(0)
   const [correctAnswersCount, setCorrectAnswersCount] = useState(0)
-  const [timeLeft, setTimeLeft] = useState(13)
+  const [timeLeft, setTimeLeft] = useState(5)
   const [showResult, setShowResult] = useState(false)
   const [isCorrect, setIsCorrect] = useState(false)
   const [gameStats, setGameStats] = useState<GameStats>({
@@ -270,7 +270,7 @@ export default function QassimTourismGame() {
     setGameState('playing')
     setCurrentLandmarkIndex(0)
     setScore(0)
-    setTimeLeft(13)
+    setTimeLeft(5)
     setSelectedAnswer(null)
     setShowResult(false)
     setGameStartTime(Date.now())
@@ -314,7 +314,7 @@ export default function QassimTourismGame() {
     if (currentLandmarkIndex < shuffledLandmarks.length - 1) {
       setCurrentLandmarkIndex(currentLandmarkIndex + 1)
       setSelectedAnswer(null)
-      setTimeLeft(13)
+      setTimeLeft(1)
       setShowResult(false)
       setQuestionStartTime(Date.now())
     } else {
@@ -428,7 +428,7 @@ export default function QassimTourismGame() {
                       اختر الإجابة
                     </h3>
                     <p className="medium-brown-text text-sm lg:text-base">
-                      لديك 13 ثواني لاختيار الإجابة الصحيحة من 3 خيارات
+                      لديك 5 ثواني لاختيار الإجابة الصحيحة من 3 خيارات
                     </p>
                   </div>
                   <div className="flex flex-col items-center text-center">
@@ -573,7 +573,8 @@ export default function QassimTourismGame() {
 
               {/* تواصل معنا */}
               <div>
-                <h3 className="text-[#00B5B8] font-semibold mb-2"></h3>
+                <h3 className="text-[#00B5B8] font-semibold mb-2">
+                </h3>
                 <ul className="space-y-1 text-gray-200">
                   <li>
                     {' '}
@@ -606,7 +607,9 @@ export default function QassimTourismGame() {
               href="mailto:info@qassim1.org?subject=طلب خدمة تصميم موقع"
               className="inline-block bg-white text-[#1B1F5C] font-bold px-6 py-3 rounded-full hover:bg-[#00B5B8] hover:text-white transition"
             >
-              هل لديك فكرة وتحتاج موقعًا مميزًا؟ تواصل معنا
+              هل لديك فكرة وتحتاج موقعًا مميزًا؟
+               تواصل معنا
+
             </a>
           </div>
 

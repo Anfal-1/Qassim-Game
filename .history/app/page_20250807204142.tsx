@@ -428,7 +428,7 @@ export default function QassimTourismGame() {
                       اختر الإجابة
                     </h3>
                     <p className="medium-brown-text text-sm lg:text-base">
-                      لديك 13 ثواني لاختيار الإجابة الصحيحة من 3 خيارات
+                      لديك 5 ثواني لاختيار الإجابة الصحيحة من 3 خيارات
                     </p>
                   </div>
                   <div className="flex flex-col items-center text-center">
@@ -573,7 +573,8 @@ export default function QassimTourismGame() {
 
               {/* تواصل معنا */}
               <div>
-                <h3 className="text-[#00B5B8] font-semibold mb-2"></h3>
+                <h3 className="text-[#00B5B8] font-semibold mb-2">
+                </h3>
                 <ul className="space-y-1 text-gray-200">
                   <li>
                     {' '}
@@ -606,7 +607,9 @@ export default function QassimTourismGame() {
               href="mailto:info@qassim1.org?subject=طلب خدمة تصميم موقع"
               className="inline-block bg-white text-[#1B1F5C] font-bold px-6 py-3 rounded-full hover:bg-[#00B5B8] hover:text-white transition"
             >
-              هل لديك فكرة وتحتاج موقعًا مميزًا؟ تواصل معنا
+              هل لديك فكرة وتحتاج موقعًا مميزًا؟
+               تواصل معنا
+
             </a>
           </div>
 
