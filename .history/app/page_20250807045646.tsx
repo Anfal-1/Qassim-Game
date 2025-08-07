@@ -490,7 +490,7 @@ export default function QassimTourismGame() {
       <main className="bg-white text-[#1B1F5C] font-sans">
         {/* 🔵 الشعار */}
         <header className="py-6 flex justify-center">
-          <div className="w-36 h-36  overflow-hidden relative select-none pointer-events-none">
+          <div className="w-36 h-36 rounded-full overflow-hidden relative select-none pointer-events-none">
             <img
               src="/qw.png"
               alt="Qassim Tech Logo"
